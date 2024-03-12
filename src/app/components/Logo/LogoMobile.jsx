@@ -1,12 +1,14 @@
+import Image from 'next/image';
 import React from 'react';
 
 const LogoMobile = () => {
     return (
         <div className='p-7'>
-            <img
+            <Image
                 src='./Assets/Logo.svg'
                 alt="Logo"
-                className=" h-60 w-30"
+                width={30} height={60} 
+                
             />
 
         </div>

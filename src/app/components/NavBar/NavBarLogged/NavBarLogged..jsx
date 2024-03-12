@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const NavBarLogged = () => {
     return (
@@ -7,19 +8,21 @@ const NavBarLogged = () => {
             <ul className="flex items-center space-x-4">
                 <li>
                     <Link href="/home">
-                        <img
+                        <Image
                             src='./Assets/Home-icon.svg'
                             alt="Home icon"
-                            className="Home-icon w-40px] h-[40px]"
+                            width={40} height={40} 
+                            className="Home-icon "
                         />
                     </Link>
                 </li>
                 <li>
                     <Link href="/create">
-                        <img
+                        <Image
                             src='./Assets/Create-icon.svg'
                             alt="Create icon"
-                            className="Create-icon w-[40px] h-[40px]"
+                            width={40} height={40} 
+                            className="Create-icon"
                         />
 
 

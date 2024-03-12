@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const NavBarMobile = () => {
     return (
@@ -8,19 +9,21 @@ const NavBarMobile = () => {
                 <div className="relative w-[285px] h-[40px] top=[11px] left-[33px]">
                     <li>
                         <Link href="/home">
-                            <img
+                            <Image
                                 src='./Assets/Home-icon.svg'
                                 alt="Home icon"
-                                className="absolute top-0 left-0 Home-icon w-40px] h-[40px] "
+                                width={40} height={40} 
+                                className="absolute top-0 left-0 Home-icon] "
                             />
                         </Link>
                     </li>
                     <li>
                         <Link href="/user">
-                            <img
+                            <Image
                                 src='./Assets/Avatar-icon.svg'
                                 alt="Avatar icon"
-                                className="absolute Avatar-icon w-[40px] h-[40px] top-0 left-[245px]"
+                                width={40} height={40} 
+                                className="absolute Avatar-icon top-0 left-[245px]"
                             />
 
 
