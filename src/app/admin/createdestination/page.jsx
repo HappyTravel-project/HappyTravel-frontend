@@ -15,13 +15,13 @@ export default function NewDestination() {
       
       {/* mobile version */}
       <div className='p-6 md:hidden'>
-        <div className=""> {/* Oculta en pantallas medianas y grandes */}
+        <div className=""> 
           <div>
-            <div className="flex justify-center items-center">
+            {/* <div className="flex justify-center items-center">
               <div className="mb-6 h-auto">
                 <LogoMobile />
               </div>
-            </div>
+            </div> */}
             <NewDestinationMobile title="Crear Destino"/>
           </div>
         </div>

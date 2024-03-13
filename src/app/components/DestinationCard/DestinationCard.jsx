@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import {EditButton,DeleteButton} from "../DestinationCardButtons/DestinationCardButtons"
 
 const DestinationCard = ({ data }) => {
   /* CSS styles */
@@ -13,27 +14,36 @@ const DestinationCard = ({ data }) => {
   /* END CSS styles */
   return (
     <ul className={gridWrapper}>
-      {Array.isArray(data) && data.map((item, index) => (
-        <li key={index} className={gridItem}>
-          <div className={imgWrapper}>
-            <Link href={`/details/${item.id}`}>
-              <Image src="/Assets/Info-icon.svg" alt="Info" className={infoIconStyle} width="50" height="50" />
-            </Link>
-            <Image
-              src={`http://localhost:8000${item.attributes.image}`}
-              alt={item.attributes.title}
-              layout="fill"
-              className={imgStyle}
-            />
-          </div>
-          <div className="p-4">
-            <Link href={`/details/${item.id}`}>
-              <h5 className={titleStyle}>{item.attributes.title}</h5>
-            </Link>
-            <p className={textStyle}>{item.attributes.location}</p>
-          </div>
-        </li>
-      ))}
+      {Array.isArray(data) &&
+        data.map((item, index) => (
+          <li key={index} className={gridItem}>
+            <div className={imgWrapper}>
+              <Link href={`/details/${item.id}`}>
+                <Image src="/Assets/Info-icon.svg" alt="Info" className={infoIconStyle} width="50" height="50" />
+              </Link>
+              <Image
+                src={`http://localhost:8000${item.image}`}
+                alt={item.title}
+                width="300"
+                height="300"
+                className={imgStyle}
+              />
+            </div>
+            <div className="flex flex-row p-4 justify-between">
+              <div >
+              <Link href={`/details/${item.id}`}>
+                <h5 className={titleStyle}>{item.title}</h5>
+              </Link>
+              <p className={textStyle}>{item.location}</p>
+            </div>
+            <div className="flex flex-row gap-2 p-3">
+                  <EditButton />
+                  <DeleteButton />
+            </div>
+            </div>
+            
+          </li>
+        ))}
     </ul>
   );
 };
