@@ -39,12 +39,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`${jaldi.className} bg-white text-text-color font-bold text-[4rem] rounded-full border-primary`}>
-        <div className={` ${isMobile ? 'md:block' : ''}`}>
+        <div className={` ${isMobile ? 'hidden md:block' : ''}`}>
           {/* Versión Desktop */}
           <NavBar />
         </div>
         {/* Versión Desktop logged */}
-        <div className={` ${isMobile ? 'md:block' : ''}`}>
+        <div className={` ${isMobile ? ' hidden md:block' : ''}`}>
           <NavBarLogged />
         </div>
         {/* Versión móvil */}
