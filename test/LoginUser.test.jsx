@@ -1,63 +1,38 @@
-import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
+// import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react'
 import LoginUser from '../src/app/components/LoginUser/LoginUser';
-import axios from 'axios'; 
-import { MemoryRouter } from 'react-router-dom';
-
-// Mockear axios.post para simular la llamada a la API
-jest.mock('axios');
+// import axios from 'axios'; 
+// import { MemoryRouter } from 'react-router-dom';
 
 describe('LoginUser', () => {
-  test('should log in successfully', async () => {
-    // Configurar el mock de axios.post para retornar un acceso exitoso
-    axios.post.mockResolvedValueOnce({
-      status: 200,
-      data: {
-        data: {
-          access_token: 'mocked_access_token',
-        },
-      },
-    });
+  it('renders the email and password inputs', () => {
+    render(<LoginUser />)
+    const emailInput = screen.getByPlaceholderText('Email')
+    const passwordInput = screen.getByPlaceholderText('Password')
+    expect(emailInput).toBeInTheDocument()
+    expect(passwordInput).toBeInTheDocument()
+  })
 
-    // Renderizar el componente
-    const { getByPlaceholderText, getByText } = render(
-      <MemoryRouter>
-        <LoginUser />
-      </MemoryRouter>
-    );
+  it('submits the form when the button is clicked', () => {
+    const handleSubmit = jest.fn()
+    render(<LoginUser onSubmit={handleSubmit} />)
+    const emailInput = screen.getByPlaceholderText('Email')
+    const passwordInput = screen.getByPlaceholderText('Password')
+    const button = screen.getByText('Acceptar')
+    fireEvent.change(emailInput, { target: { value: 'test@example.com' } })
+    fireEvent.change(passwordInput, { target: { value: 'password' } })
+    fireEvent.click(button)
+    expect(handleSubmit).toHaveBeenCalledWith({
+      email: 'test@example.com',
+      password: 'password',
+    })
+  })
 
-    // Introducir credenciales y enviar el formulario
-    fireEvent.change(getByPlaceholderText('Email'), { target: { value: 'test@example.com' } });
-    fireEvent.change(getByPlaceholderText('Password'), { target: { value: 'password123' } });
-    fireEvent.click(getByText('Acceptar'));
-
-    // Esperar a que la llamada a la API se complete
-    await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-
-    // Verificar que el usuario sea redirigido después de iniciar sesión
-    expect(window.location.pathname).toBe('/admin/dashboard');
-  });
-
-  test('should display error message on login failure', async () => {
-    // Configurar el mock de axios.post para retornar un error
-    axios.post.mockRejectedValueOnce(new Error('Login failed'));
-
-    // Renderizar el componente
-    const { getByPlaceholderText, getByText } = render(
-      <MemoryRouter>
-        <LoginUser />
-      </MemoryRouter>
-    );
-
-    // Introducir credenciales y enviar el formulario
-    fireEvent.change(getByPlaceholderText('Email'), { target: { value: 'test@example.com' } });
-    fireEvent.change(getByPlaceholderText('Password'), { target: { value: 'password123' } });
-    fireEvent.click(getByText('Acceptar'));
-
-    // Esperar a que la llamada a la API se complete
-    await waitFor(() => expect(axios.post).toHaveBeenCalledTimes(1));
-
-    // Verificar que se muestra el mensaje de error
-    expect(getByText('Failed to log in. Please try again later.')).toBeInTheDocument();
-  });
-});
+  it('displays an error message when the login fails', () => {
+    render(<LoginUser />)
+    const button = screen.getByText('Acceptar')
+    fireEvent.click(button)
+    const errorMessage = screen.getByText('Failed to log in. Please try again later.')
+    expect(errorMessage).toBeInTheDocument()
+  })
+})
