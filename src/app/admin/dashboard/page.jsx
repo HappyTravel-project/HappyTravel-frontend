@@ -1,4 +1,4 @@
-import Destinations from "@/app/components/DestinationCard/Destinations";
+import Destinations from "../../components/DestinationCard/Destinations";
 import Link from "next/link";
 
 export default function PageDashboard() {
