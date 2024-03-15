@@ -1,10 +1,12 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../Logo/Logo';
 import SearchComponent from '../SearchComponent/SearchComponent';
 
 const NavBar = () => {
+
+    
+
     return (
         <nav>
             <div className=" border-b-2 border-blue-600 flex flex-col sm:flex-row items-center justify-between mx-4 sm:mx-8 mt-4 pb-4 sm:pb-0 gap-6 sm:gap-8">

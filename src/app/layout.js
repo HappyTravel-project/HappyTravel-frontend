@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import NavBarMobile from "./components/NavBar/NavBarMobile/NavBarMobile";
 import NavBarLoggedMob from "./components/NavBar/NavBarLoggedMob/NavBarLoggedMob";
 import NavBarLogged from "./components/NavBar/NavBarLogged/NavBarLogged.";
+import  AuthContextProvider from "../contexts/authContext";
 /*import LoggedDestinationCard from "./components/LoggedDestinationCard/LoggedDestinationCard";*/
 
 
@@ -37,8 +38,10 @@ export default function RootLayout({ children }) {
 
 
   return (
+   
     <html lang="es">
       <body className={`${jaldi.className} bg-white text-text-color font-bold text-[4rem] rounded-full border-primary`}>
+      <AuthContextProvider>
         <div className={` ${isMobile ? 'hidden md:block' : ''}`}>
           {/* Versión Desktop */}
           <NavBar />
@@ -58,7 +61,10 @@ export default function RootLayout({ children }) {
         </div>
 
         {children}
+        </AuthContextProvider>
+        
       </body>
     </html>
+    
   );
 }
