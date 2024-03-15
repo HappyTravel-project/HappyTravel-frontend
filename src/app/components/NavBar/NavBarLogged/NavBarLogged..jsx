@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../Logo/Logo';
@@ -42,6 +41,8 @@ const NavBarLogged = () => {
                                 <Image
                                     src='/Assets/Logout-icon.svg'
                                     alt="Logout icon"
+                                    width={40} height={40}
+                                    className="Logout-icon"
                                     width={40} height={40}
                                     className="Logout-icon"
                                 />
