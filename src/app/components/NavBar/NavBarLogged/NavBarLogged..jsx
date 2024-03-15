@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../Logo/Logo';
@@ -16,7 +15,7 @@ const NavBarLogged = () => {
                     <SearchComponent />
                     <ul className="flex items-center space-x-4">
                         <li>
-                            <Link href="/home">
+                            <Link href="/admin/home">
                                 <Image
                                     src='./Assets/Home-icon.svg'
                                     alt="Home icon"
@@ -26,7 +25,7 @@ const NavBarLogged = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/create">
+                            <Link href="/admin/create">
                                 <Image
                                     src='./Assets/Create-icon.svg'
                                     alt="Create icon"
@@ -38,11 +37,12 @@ const NavBarLogged = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/Logout">
-                                <img
+                            <Link href="/admin/Logout">
+                                <Image
                                     src='./Assets/Logout-icon.svg'
                                     alt="Logout icon"
-                                    className="Logout-icon w-[40px] h-[40px]"
+                                    width={40} height={40}
+                                    className="Logout-icon"
                                 />
 
 

@@ -18,7 +18,7 @@ const NavBarMobile = () => {
                     <ul className="fixed bottom-0 left-1/2 transform -translate-x-1/2  w-[350px] h-[62px] bg-yellow-100 rounded-[40px] shadow-[inset_0px_2px_2px_#00dfa240 flex items-center justify-center space-x-4 ">
                         <div className="relative w-[285px] h-[40px] top=[11px] ">
                             <li>
-                                <Link href="/home">
+                                <Link href="/admin/home">
                                     <Image
                                         src='./Assets/Home-icon.svg'
                                         alt="Home icon"
@@ -28,7 +28,7 @@ const NavBarMobile = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/user">
+                                <Link href="/admin/user">
                                     <Image
                                         src='./Assets/Avatar-icon.svg'
                                         alt="Avatar icon"

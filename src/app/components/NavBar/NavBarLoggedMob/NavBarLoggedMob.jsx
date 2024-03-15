@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../../Logo/Logo';
@@ -19,7 +18,7 @@ const NavBarLoggedMob = () => {
                         <div className="relative w-[285px] h-[40px] flex flex-row justify-between">
                             <li>
 
-                                <Link href="/home">
+                                <Link href="/admin/home">
                                     <Image
                                         src='./Assets/Home-icon.svg'
                                         alt="Home icon"
@@ -29,7 +28,7 @@ const NavBarLoggedMob = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/login">
+                                <Link href="/admin/login">
                                     <Image
                                         src='./Assets/Create-icon.svg'
                                         alt="Create icon"
@@ -41,7 +40,7 @@ const NavBarLoggedMob = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/Logout">
+                                <Link href="/admin/Logout">
                                     <Image
                                         src='./Assets/Logout-icon.svg'
                                         alt="Logout icon"

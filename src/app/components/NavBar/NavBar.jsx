@@ -18,7 +18,7 @@ const NavBar = () => {
                     <SearchComponent />
                     <ul className="flex items-center space-x-4">
                         <li>
-                            <Link href="/">
+                            <Link href="/admin/home">
                                 <Image
                                     src='/Assets/Home-icon.svg'
                                     alt="Home icon"
@@ -28,7 +28,7 @@ const NavBar = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link href="/register">
+                            <Link href="/admin/register">
                                 <Image
                                     src='/Assets/Avatar-icon.svg'
                                     alt="Avatar icon"
